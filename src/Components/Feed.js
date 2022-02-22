@@ -2,13 +2,16 @@ import React, {useContext, useEffect, useState} from 'react'
 import { AuthContext } from '../Context/AuthContext';
 import { database } from '../Firebase';
 import UploadFile from './UploadFile';
+import Posts from './Posts';
 
 function Feed() {
     const {user, logout} = useContext(AuthContext)
     const [userData, setUserData] = useState('')
     useEffect(() => {
+        // console.log(user + "HIIIII");
         const unsub = database.users.doc(user?.uid).onSnapshot((snapshot) => {
             setUserData(snapshot.data());
+            // console.log(snapshot.data())
         })
         return ()=> {unsub()}
     }, [user])
@@ -18,7 +21,8 @@ function Feed() {
             <h1>Welcome to Feed</h1>
             <button onClick={logout}>Log out</button>
         </div>
-        <UploadFile user={userData}/>
+        <UploadFile user={userData} />
+        <Posts userData={userData} />
     </div>
   )
 }
