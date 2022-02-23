@@ -1,19 +1,10 @@
 import * as React from 'react';
-import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import InputBase from '@mui/material/InputBase';
-import Badge from '@mui/material/Badge';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
-import AccountCircle from '@mui/icons-material/AccountCircle';
-import MailIcon from '@mui/icons-material/Mail';
-import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LogoutIcon from '@mui/icons-material/Logout';
@@ -25,6 +16,7 @@ import ExploreIcon from '@mui/icons-material/Explore';
 import Avatar from '@mui/material/Avatar'
 
 export default function Navbar({userData}) {
+    console.log(userData.userId);
     const [anchorEl, setAnchorEl] = React.useState(null);
     const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
     const isMenuOpen = Boolean(anchorEl);
@@ -50,7 +42,8 @@ export default function Navbar({userData}) {
     };
 
     const handleprofile = () => {
-        navigate(`/profile/${userData.uid}`)
+
+        navigate(`/profile/${userData.userId}`)
     }
 
     const handlelogout = async() => {
