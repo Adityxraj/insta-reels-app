@@ -6,17 +6,9 @@ import './Posts.css';
 import Avatar from '@mui/material/Avatar';
 import Like from './Like';
 import CommentIcon from '@mui/icons-material/Comment';
-import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import DialogTitle from '@mui/material/DialogTitle';
 import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { CardActionArea, CardActions } from '@mui/material';
 import Like2 from './Like2';
 import AddComment from './AddComment';
 import Comments from './Comments';
@@ -79,11 +71,11 @@ function Posts({userData}) {
                                                 <Card className="card1" style={{padding: '1rem'}}>
                                                     <Comments postData={post}/>
                                                 </Card>
-                                                <Card variant="outlined" className="card2">
+                                                <Card variant="outlined" className="card2" style={{paddingBottom: '13%'}}>
                                                     <Typography style={{padding: '0.4rem'}}>{post.likes.length == 0 ? '' : `Liked by ${post.likes.length} users`}</Typography>
                                                     <div style={{display: 'flex'}}>
                                                         <Like2 postData={post} userData={userData} style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}} />
-                                                        <AddComment />
+                                                        <AddComment userData={userData} postData={post}/>
                                                     </div>
                                                 </Card>
                                             </div>
