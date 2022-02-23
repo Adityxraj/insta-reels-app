@@ -10,7 +10,7 @@ function Video(props) {
     const handleScroll = (e) => {
         let next = ReactDOM.findDOMNode(e.target).parentNode.nextSibling
         if(next) {
-            next.scrollIntoView()
+            next.scrollIntoView({behavior:"smooth"}) 
             e.target.muted = true
         }
     }
